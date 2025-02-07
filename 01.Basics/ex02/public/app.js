@@ -4,7 +4,3 @@ function App() {
 
     return App;
 }
-
-document
-    .getElementById("root")
-    .appendChild(App());
