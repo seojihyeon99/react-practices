@@ -14,7 +14,7 @@
         background-color: #ccc;
         cursor: pointer;       
         
-        &.Active {
+        &:global(.active) {
             background-color: #fc6;           
         }
     }
