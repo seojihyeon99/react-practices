@@ -29,8 +29,8 @@ export default function App() {
     }, []);
 
     return (
-        (ticks === 0 || ticks % 5 !== 0) 
-        &&
+        ticks % 10 == 0 ? 
+        null : 
         <Clock
             title={`ex04: Clock Component II: ${ticks}`}
             hours={currentTime.hours}
