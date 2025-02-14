@@ -2,27 +2,26 @@ import React, { useEffect, useState } from 'react';
 import './assets/scss/KanbanBoard.scss'
 import CardList from './CardList';
 
-import data from './assets/json/data';
+import srcData from './assets/json/data';
 
-const getDataByStatus = (status) => {
+const getDataByStatus = (data, status) => {
+    console.log(data);
     return data.filter(item => item.status === status);
 }
 
 function KanbanBoard() {
-    const [toDo, setToDo] = useState(getDataByStatus("ToDo"));
-    const [inProgress, setInProgress] = useState(getDataByStatus("Doing"));
-    const [done, setDone] = useState(getDataByStatus("Done"));
+    const [data, setData] = useState(srcData);
 
     return (
         <div className={'Kanban_Board'}>
             {/* To Do CardList */}
-            <CardList status="To Do" data={toDo}/>
+            <CardList status="To Do" data={getDataByStatus(data, "ToDo")} setData={setData}/>
 
             {/* In Progress CardList */}
-            <CardList status="Doing" data={inProgress}/>
+            <CardList status="Doing" data={getDataByStatus(data, "Doing")} setData={setData}/>
             
             {/* Done CardList */}
-            <CardList status="Done" data={done}/>
+            <CardList status="Done" data={getDataByStatus(data, "Done")} setData={setData}/>
         </div>
     );
 }

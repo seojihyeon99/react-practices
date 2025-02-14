@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {_Card, Card_Title, Card_Title_Open} from './assets/scss/Card.scss';
 import TaskList from './TaskList';
 
-function Card({no, title, description, tasks}) {
+function Card({no, title, description, tasks, setData}) {
     const [isOpen, setIsOpen] = useState(true);
 
     const openCard = () => {
@@ -20,7 +20,7 @@ function Card({no, title, description, tasks}) {
                     {description}
                     
                     {/* TaskList */}
-                    <TaskList data={tasks}/>
+                    <TaskList data={tasks} setData={setData}/>
                 </div>     
             )}
         </div>

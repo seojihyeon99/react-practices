@@ -2,7 +2,7 @@ import React from 'react';
 import {Card_List} from './assets/scss/CardList.scss'
 import Card from './Card';
 
-function CardList({status, data}) {
+function CardList({status, data, setData}) {
     return (
         <div className={Card_List}>
             <h1>{status}</h1>
@@ -14,7 +14,8 @@ function CardList({status, data}) {
                                     no={item.no}
                                     title={item.title}
                                     description={item.description}
-                                    tasks={item.tasks} />)
+                                    tasks={item.tasks} 
+                                    setData={setData}/>)
             }
         </div>
     );
